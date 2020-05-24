@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Lista de Estudiantes</h1>
+
+<table>
+	<thead>
+		<th>
+			Nombre
+		</th>
+		<th>
+			apellido
+		</th>
+		<th>
+			importancia
+		</th>
+		<th>
+			nit
+		</th>
+		<th>
+			fecha
+		</th>
+		
+	</thead>
+	
+	<th:block th:each="contr, row: ${contri}">
+	
+	<tr>
+		<th th:text=${contr.nombre} />
+	
+		<th th:text=${contr.apellido} />
+	
+		<th th:if="${contr.importancia} == 1"  th:text="Grandes"></span>
+		<th th:if="${contr.importancia} == 2"  th:text="Medianos"></span>
+		<th th:if="${contr.importancia} == 3"  th:text="otros"></span>
+
+		<th th:text=${contr.nit} />
+
+		<th th:text=${contr.fecha} />
+	</tr>
+		</th:block>
+
+</table>
+
+<a href="/inicio"> registro</a>
+
+</body>
+</html>

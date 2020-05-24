@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Agregar producto</h1>
+<form id="usrform" action="#" th:action="@{/registro}" th:object="${contribuyente}" method="post">
+ <p>
+ 	nombre: <input type="text" th:field="*{nombre}">
+ </p>
+
+ <p>
+ 	apellido: <input type="text" th:field="*{apellido}">
+ </p>
+  <p>
+ 	nit: <input type="text" th:field="*{nit}">
+ </p>
+  <p>
+ 	Importancia: 
+ 	<select th:field="*{importancia}">
+ 		<option th:each="imp: ${lista}" th:value='${imp.getImportanciaCode()}' th:text="${imp.getImportanciaName()}" />
+ 	
+ 	</select>
+ </p>
+
+ 
+  
+ <p>
+ 	<input type="submit" value="Enviar"><input type="reset" value="borrar">
+ </p>
+ 
+</form>
+<p th:text="${msg}"></p>
+
+
+<a href="/listado">Ir a la lista</a>
+
+</body>
+</html>
